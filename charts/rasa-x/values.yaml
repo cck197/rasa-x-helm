@@ -11,11 +11,11 @@ rasax:
   # port on which Rasa X runs
   port: 5002
   # passwordSalt Rasa X uses to salt the user passwords
-  passwordSalt: "passwordSalt"
+  passwordSalt: "w$Jz0a7QJq6k"
   # token Rasa X accepts as authentication token from other Rasa services
-  token: "rasaXToken"
+  token: "eiNw8$f!da4#"
   # jwtSecret which is used to sign the jwtTokens of the users
-  jwtSecret: "jwtSecret"
+  jwtSecret: "NsnsW6&4QJ5h"
   # databaseName Rasa X uses to store data
   # (uses the value of global.postgresql.postgresqlDatabase by default)
   databaseName: ""
@@ -26,7 +26,7 @@ rasax:
     # username specifies a name of this user
     username: "me"
     # password for this user (leave it empty to skip the user creation)
-    password: ""
+    password: "OHW0Ds8fcBSWivAL8NTa"
   ## Enable persistence using Persistent Volume Claims
   ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
   ##
@@ -72,7 +72,7 @@ rasa:
   # port on which Rasa runs
   port: 5005
   # token Rasa accepts as authentication token from other Rasa services
-  token: "rasaToken"
+  token: "CkZ2YLV*4^^n"
   # rabbitQueue it should use to dispatch events to Rasa X
   rabbitQueue: "rasa_production_events"
   # additionalChannelCredentials which should be used by Rasa to connect to various
@@ -181,9 +181,9 @@ eventService:
 # app (custom action server) specific settings
 app:
   # name of the custom action server image to use
-  name: "rasa/rasa-x-demo"
+  name: "cck197/rasa"
   # tag refers to the custom action server image tag
-  tag: "0.24.0"
+  tag: "actions-dev"
   # replicaCount of the custom action server container
   replicaCount: 1
   # port on which the custom action server runs
@@ -289,7 +289,7 @@ duckling:
 rasaSecret: ""
 
 # debugMode enables / disables the debug mode for Rasa and Rasa X
-debugMode: false
+debugMode: true
 
 # separateEventService value determines whether the eventService will be run as a separate service.
 # If set to 'false', Rasa X will run an event service as a subprocess (not recommended
@@ -328,7 +328,7 @@ rabbitmq:
     # username which is used for the authentication
     username: "user"
     # password which is used for the authentication
-    password: "password"
+    password: "WKFiwIhmahqgaX1lgyFY"
     # existingPasswordSecret which should be used for the password instead of putting it in the values file
     existingPasswordSecret: ""
   # service specifies settings for exposing rabbit to other services
@@ -391,7 +391,8 @@ images:
   # pullPolicy to use when deploying images
   pullPolicy: "Always"
   # imagePullSecrets which are required to pull images for private registries
-  imagePullSecrets: []
+  imagePullSecrets:
+  - name: "regcred"
 
 # securityContext to use
 securityContext:
@@ -413,7 +414,7 @@ global:
     # postgresqlUsername which should be used by Rasa to connect to Postgres
     postgresqlUsername: "postgres"
     # postgresqlPassword is the password which is used when the postgresqlUsername equals "postgres"
-    postgresqlPassword: "password"
+    postgresqlPassword: "fSDlrj4Q0NdnxKgNEcwN"
     # existingSecret which should be used for the password instead of putting it in the values file
     existingSecret: ""
     # postgresDatabase which should be used by Rasa X
@@ -424,4 +425,4 @@ global:
   # redis: global settings of the postgresql subchart
   redis:
     # password to use in case there no external secret was provided
-    password: "redis-password"
+    password: "fV3YM0FQ933DhaPWJQuO"
