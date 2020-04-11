@@ -183,7 +183,7 @@ app:
   # name of the custom action server image to use
   name: "cck197/rasa"
   # tag refers to the custom action server image tag
-  tag: "actions-dev"
+  tag: "actions-0.01"
   # replicaCount of the custom action server container
   replicaCount: 1
   # port on which the custom action server runs
@@ -372,12 +372,14 @@ ingress:
   # enabled should be `true` if you want to use this ingress
   enabled: true
   # annotations for the ingress
-  annotations: {}
+  annotations: {
+    kubernetes.io/ingress.global-static-ip-name: "hal9002-ip"
+  }
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   # hosts for this ingress
   hosts:
-    - host: rasa-x.example.com
+    - host: hal9002.nbt.ai
       paths:
       - /
   # tls: Secrets for the certificates
