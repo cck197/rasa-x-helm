@@ -32,10 +32,10 @@ spec:
       http:
         paths:
         {{- range .paths }}
-          - path: {{ . }}
-            backend:
-              serviceName: {{ $fullName }}-nginx
-              servicePort: {{ $svcPort }}
+        - backend:
+          serviceName: {{ $fullName }}-nginx
+          servicePort: {{ $svcPort }}
+          path: {{ . }}
         {{- end }}
   {{- end }}
 {{- end }}
