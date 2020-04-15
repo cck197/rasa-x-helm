@@ -183,7 +183,7 @@ app:
   # name of the custom action server image to use
   name: "cck197/rasa"
   # tag refers to the custom action server image tag
-  tag: "actions-0.01"
+  tag: "actions-0.02"
   # replicaCount of the custom action server container
   replicaCount: 1
   # port on which the custom action server runs
@@ -381,7 +381,7 @@ ingress:
   hosts:
     - host: hal9002.nbt.ai
       paths:
-      - /
+      - /*
   # tls: Secrets for the certificates
   tls: []
   #  - secretName: rasa-x-tls
