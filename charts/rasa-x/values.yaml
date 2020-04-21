@@ -7,7 +7,7 @@ rasax:
   # name of the Rasa X image to use
   name: "rasa/rasa-x"  # gcr.io/rasa-platform/rasa-x-ee
   # tag refers to the Rasa X image tag (uses `appVersion` by default)
-  tag: ""
+  tag: "0.27.6"
   # port on which Rasa X runs
   port: 5002
   # passwordSalt Rasa X uses to salt the user passwords
@@ -66,9 +66,9 @@ rasax:
 # rasa: Settings common for all Rasa containers
 rasa:
   # name of the Rasa image to use
-  name: "rasa/rasa"
+  name: "cck197/rasa"
   # tag refers to the Rasa image tag
-  tag: "1.9.5"  # Please check the README to see all locations which have to be updated for a rasa release)
+  tag: "rasa-1.9.6"
   # port on which Rasa runs
   port: 5005
   # token Rasa accepts as authentication token from other Rasa services
@@ -183,7 +183,7 @@ app:
   # name of the custom action server image to use
   name: "cck197/rasa"
   # tag refers to the custom action server image tag
-  tag: "actions-0.02"
+  tag: "actions-0.06"
   # replicaCount of the custom action server container
   replicaCount: 1
   # port on which the custom action server runs
