@@ -7,7 +7,7 @@ rasax:
   # name of the Rasa X image to use
   name: "rasa/rasa-x"  # gcr.io/rasa-platform/rasa-x-ee
   # tag refers to the Rasa X image tag (uses `appVersion` by default)
-  tag: "0.27.6"
+  tag: "0.27.7"
   # port on which Rasa X runs
   port: 5002
   # passwordSalt Rasa X uses to salt the user passwords
@@ -77,7 +77,10 @@ rasa:
   rabbitQueue: "rasa_production_events"
   # additionalChannelCredentials which should be used by Rasa to connect to various
   # input channels
-  additionalChannelCredentials: {}
+  additionalChannelCredentials:
+    twilio:
+      twilio_number: "2062229002"
+
     # rest:
     # facebook:
     #   verify: "rasa-bot"
@@ -92,18 +95,18 @@ rasa:
   # lockStoreDatabase is the database in redis which Rasa uses to store the conversation locks
   lockStoreDatabase: "1"
   # extraEnvs are environment variables which can be added to the Rasa deployment
-  extraEnvs: []
-    # example which sets env variables in each Rasa Open Source service from a separate k8s secret
-    # - name: "TWILIO_ACCOUNT_SID"
-    #   valueFrom:
-    #     secretKeyRef:
-    #       name: twilio-auth
-    #       key: twilio_account_sid
-    # - name: TWILIO_AUTH_TOKEN
-    #   valueFrom:
-    #     secretKeyRef:
-    #       name: twilio-auth
-    #       key: twilio_auth_token
+  # example which sets env variables in each Rasa Open Source service from a separate k8s secret
+  extraEnvs:
+    - name: "TWILIO_ACCOUNT_SID"
+      valueFrom:
+        secretKeyRef:
+          name: twilio-auth
+          key: twilio_account_sid
+    - name: "TWILIO_AUTH_TOKEN"
+      valueFrom:
+        secretKeyRef:
+          name: twilio-auth
+          key: twilio_auth_token
 
   # tolerations can be used to control the pod to node assignment
   # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
@@ -183,7 +186,7 @@ app:
   # name of the custom action server image to use
   name: "cck197/rasa"
   # tag refers to the custom action server image tag
-  tag: "actions-0.06"
+  tag: "actions-0.09"
   # replicaCount of the custom action server container
   replicaCount: 1
   # port on which the custom action server runs
