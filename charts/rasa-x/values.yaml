@@ -7,7 +7,7 @@ rasax:
   # name of the Rasa X image to use
   name: "rasa/rasa-x"  # gcr.io/rasa-platform/rasa-x-ee
   # tag refers to the Rasa X image tag (uses `appVersion` by default)
-  tag: "0.27.7"
+  tag: "0.28.0"
   # port on which Rasa X runs
   port: 5002
   # passwordSalt Rasa X uses to salt the user passwords
@@ -81,7 +81,12 @@ rasa:
     twilio:
       twilio_number: "2062229002"
 
-    # rest:
+    socketio:
+      user_message_evt: user_uttered
+      bot_message_evt: bot_uttered
+      session_persistence: true
+
+    rest:
     # facebook:
     #   verify: "rasa-bot"
     #   secret: "3e34709d01ea89032asdebfe5a74518"
